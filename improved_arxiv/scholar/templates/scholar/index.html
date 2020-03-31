@@ -1,0 +1,5 @@
+<h3>Welcome to the improved version of arXiv!</h3>
+{% url 'newest_articles' as newest_articles_url %}
+<a href="{{ newest_articles_url }}" target="_blank">Check out latest articles!</a>
+{% url 'prolific_authors' as prolific_authors_url %}
+<a href="{{ prolific_authors_url }}" target="_blank">Check out prolific authors!</a>

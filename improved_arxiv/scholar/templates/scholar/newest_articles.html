@@ -1,0 +1,27 @@
+<h3>Latest Articles on Therapy, Psychiatry, Machine Learning and/or Data Science in the Last Six Months</h3>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
+        {% endif %}
+    </span>
+</div>
+<br>
+
+<ul>
+{% for article in page_obj %}
+    {% url 'article' article.id as article_url %}
+    <li><a href="{{ article_url }}" target="_blank">{{ article.title }}</a></li>
+{% endfor %}
+</ul>

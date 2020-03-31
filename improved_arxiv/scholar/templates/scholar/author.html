@@ -1,0 +1,10 @@
+<h3>Author Info</h3>
+<h4>Name</h4>
+{{ name }}
+<h4>Articles in the Last Six Months</h4>
+<ul>
+{% for article in articles %}
+    {% url 'article' article.id as article_url %}
+    <li><a href="{{ article_url }}" target="_blank">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
